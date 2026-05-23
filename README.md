@@ -1,5 +1,5 @@
 # laz-bazaar-checker
-<img src="https://github.com/user-attachments/assets/0bf1fa5c-a109-448b-a9ef-4b52be0d1884" width="120" alt="FrogTracker logo" />
+<img src="https://github.com/user-attachments/assets/0bf1fa5c-a109-448b-a9ef-4b52be0d1884" width="200" alt="FrogTracker logo" />
 
 A two-part bazaar price checking tool for the [Project Lazarus](https://www.lazaruseq.com/) EverQuest emulator server.
 
