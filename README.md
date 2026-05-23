@@ -5,7 +5,7 @@ A two-part bazaar price checking tool for the [Project Lazarus](https://www.laza
 
 ## Overview
 
-- **`export_trader.lua`** — MacroQuest Lua script that exports your trader's inventory to a flat file using MQ2Bzsrch
+- **`bazaar_checker.lua`** — MacroQuest Lua script that exports your trader's inventory to a flat file using MQ2Bzsrch
 - **`bazaar_checker.py`** — Python script that reads the inventory file and checks each item's price against live market data from [FrogTracker](https://frogtracker.biz)
 
 ## Requirements
@@ -25,7 +25,7 @@ A two-part bazaar price checking tool for the [Project Lazarus](https://www.laza
 1. Log into your trader character and enter trader mode (`/trader`)
 2. Run the Lua script — it opens the Bazaar Search Window automatically:
    ```
-   /lua run export_trader
+   /lua run bazaar_checker
    ```
 3. This creates `kreigar_inventory.txt` on your Desktop in `ItemName|Price` format
 
@@ -78,7 +78,7 @@ If you have multiple stacks of the same item at the same price, they appear as o
 
 | File | Location |
 |---|---|
-| `export_trader.lua` | `C:\Games\MacroQuest\lua\` |
+| `bazaar_checker.lua` | `C:\Games\MacroQuest\lua\` |
 | `bazaar_checker.py` | Anywhere Python can run it |
 | Inventory file (output) | Desktop (configurable in lua script) |
 | Report file (output) | Same directory as `bazaar_checker.py` |
