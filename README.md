@@ -1,5 +1,6 @@
 # FrogSpy
-<img src="frogspy_logo.png" width="300" alt="FrogSpy logo" />
+<img width="1399" height="1124" alt="image" src="https://github.com/user-attachments/assets/342d7b05-f9eb-45fc-bc4f-8d4b50fb6245" />
+
 
 A two-part bazaar price checking tool for the [Project Lazarus](https://www.lazaruseq.com/) EverQuest emulator server, powered by [FrogTracker](https://frogtracker.biz).
 
