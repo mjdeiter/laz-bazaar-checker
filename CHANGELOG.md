@@ -2,17 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-05-23
+
+### Changed
+- Project renamed from **Bazaar Checker** to **FrogSpy**
+- Repository renamed to `frogspy`
+- `bazaar_checker.lua` renamed to `frogspy.lua`; run command is now `/lua run frogspy`
+- `bazaar_checker.py` renamed to `frogspy.py`
+- All log prefixes updated from `[BazaarChecker]` to `[FrogSpy]`
+- Version header updated: `FrogSpy v1.2.0`
+- Output report file renamed from `bazaar_check_output.txt` to `frogspy_output.txt`
+- Logo updated with FrogSpy branding
+
 ## [1.1.0] - 2026-05-23
 
 ### Changed
-- Renamed `export_trader.lua` to `bazaar_checker.lua` for consistent naming with `bazaar_checker.py`
+- Renamed `export_trader.lua` to `bazaar_checker.lua`; run command updated to `/lua run bazaar_checker`
 - All log prefixes updated from `[ExportTrader]` to `[BazaarChecker]`
-- Script run command is now `/lua run bazaar_checker`
 
 ### Added
-- Version header and author signature printed on startup:
-  - `Bazaar Checker v1.1.0`
-  - `Originally created by Alektra <Lederhosen>`
+- Version header and author signature printed on startup
 - `SCRIPT_VERSION` constant defined at top of script
 
 ## [1.0.0] - 2026-05-23
