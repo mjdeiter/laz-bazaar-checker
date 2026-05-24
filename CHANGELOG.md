@@ -2,6 +2,65 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2026-05-24
+
+### Added
+- **Full Tkinter GUI** — launch with `frogspy.bat` (double-click) or `python frogspy.py --gui`
+  - Dark-themed table with color-coded rows: red = undercut, green = cheapest/tied, blue = solo
+  - Stat cards showing total / undercut / cheapest / solo / elapsed time
+  - Columns: Status, Item, Your Price, Lowest, Gap %, Rivals, 7d Low, 7d Med, 30d Low, 30d Med
+  - Sortable columns (click header to toggle asc/desc)
+  - Inventory file picker and trader name field
+  - Live row streaming — results appear as they come in, no waiting for full scan
+  - Stop button to cancel mid-scan
+  - Auto-fills inventory path if `kreigar_inventory.txt` exists on Desktop
+- `frogspy.bat` — double-click launcher; finds Python automatically (py → python → python3), opens GUI with no terminal window
+
+### Changed
+- `frogspy_scraper.py` merged into `frogspy.py` — single-file deployment, same reusable API layer
+- `--gui` flag added to CLI; bare `python frogspy.py` (no `--inventory`) also opens GUI
+- Version bumped to `1.5.0`
+
+### Removed
+- `frogspy_scraper.py` — functionality merged into `frogspy.py`
+- `frogspy_logo.png` — removed from repo
+
+## [1.4.0] - 2026-05-24
+
+### Added
+- `frogspy_scraper.py` — FrogTracker API data layer
+  - `ScraperClient` class with configurable per-request delay, retry with exponential back-off, and in-memory TTL cache (default 5 min)
+  - Typed dataclasses: `ItemHistoryResult`, `HistoryEntry`, `PriceWindows`, `HotDeal`
+  - Full price window coverage: 7-day, 30-day, 90-day, 1-year, and lifetime lowest/median prices
+  - `active_listings()`, `active_listings_excluding()`, and `competitor_prices()` convenience methods on `ItemHistoryResult`
+  - `search_items(query)` — item name search via `/Home/Search`
+  - `get_hot_dealz()` — optional hot deal list via `/Home/HotDealz`
+  - `make_client()` convenience factory
+  - Supports use as a context manager (`with make_client() as client:`)
+- `--no-cache` flag in `frogspy.py` to bypass the scraper's in-memory cache
+- `analyze_item()` now populates 30-day and 90-day price windows in addition to 7-day
+
+### Changed
+- `frogspy.py` now imports and uses `frogspy_scraper.ScraperClient` instead of raw `requests.Session`
+- Version bumped to `1.4.0`
+
+## [1.3.0] - 2026-05-24
+
+### Added
+- `frogspy_display.py` — rich terminal output module
+  - Color-coded status badges: **UNDERCUT** (red), **SOLO** (green), **CHEAPEST** (cyan)
+  - Live per-item output with competitor count and gap percentage during scan
+  - End-of-scan summary with stat cards (total / undercut / solo / cheapest)
+  - Full sorted detail table with undercut items floated to the top
+  - Monospaced price columns with comma formatting
+- `rich` added as an optional dependency (`pip install rich`)
+
+### Changed
+- `frogspy.py` refactored to use `frogspy_display.py` when available
+- `analyze_item()` now returns a structured dict instead of a plain string
+- Falls back gracefully to plain-text output if `rich` is not installed
+- Version bumped to `1.3.0`
+
 ## [1.2.0] - 2026-05-23
 
 ### Changed
@@ -12,7 +71,6 @@ All notable changes to this project will be documented in this file.
 - All log prefixes updated from `[BazaarChecker]` to `[FrogSpy]`
 - Version header updated: `FrogSpy v1.2.0`
 - Output report file renamed from `bazaar_check_output.txt` to `frogspy_output.txt`
-- Logo updated with FrogSpy branding
 
 ## [1.1.0] - 2026-05-23
 
